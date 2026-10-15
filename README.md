@@ -34,14 +34,14 @@ printf '%s\n' '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"_meta":{
 ## Package and upload
 
 ```sh
-./package.sh                                   # dist/hello.tar.gz
+bash package.sh                                # dist/hello.tar.gz
 subako function create dist/hello.tar.gz       # first version
 subako function push <function_id> dist/hello.tar.gz   # later versions
 ```
 
 Then grant the package to an agent under **Function packages** in the agent version editor.
 
-`package.sh` needs Go 1.25 or later.
+`package.sh` needs Go 1.25 or later. It runs through `bash` because `gonew` does not keep files executable.
 
 ## License
 
